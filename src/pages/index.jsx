@@ -1,8 +1,31 @@
 import Head from "next/head";
 import styled from "styled-components";
 import ListaPosts from "@/components/ListaPosts";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [listaDePosts, setlistaDePosts] = useState([]);
+
+  useEffect(() => {
+    const carregarDados = async () => {
+      try {
+        const resposta = await fetch(`http://10.20.46.41:2112/posts`);
+
+        if(!resposta.ok)
+        throw new Error (`Erro requisição: ${resposta.status} - ${resposta.statusText}`
+      );
+      }
+      
+      const dados = await resposta.json();
+      setlistaDePosts(dados);
+      } catch (error) {
+        
+      }
+      
+    };
+    carregarDados();
+  }, []);
+
   return (
     <>
       <Head>
@@ -15,7 +38,7 @@ export default function Home() {
       </Head>
       <StyledHome>
         <h2>Pet Notícias</h2>
-        <ListaPosts posts={[]} />
+        <ListaPosts posts={listaDePosts} />
       </StyledHome>
     </>
   );

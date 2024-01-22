@@ -2,7 +2,7 @@
 
 ## Branch 11-usando-json-server-como-fake-api
 
-### Etapas (faça tudo usando o Node.js)
+### Etapas (faça tudo usando o Node.js command prompt)
 
 1. Instalação global do `json-server` : `npm install -g json-sercer`
 2. Colocação do arquivo `db.json` na raiz do projeto (este arquivo funcionará como um banco de dados para a API)
