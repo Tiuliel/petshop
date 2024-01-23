@@ -4,24 +4,24 @@ import ListaPosts from "@/components/ListaPosts";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [listaDePosts, setlistaDePosts] = useState([]);
+  const [listaDePosts, setListaDePosts] = useState([]);
 
   useEffect(() => {
     const carregarDados = async () => {
       try {
         const resposta = await fetch(`http://10.20.46.41:2112/posts`);
 
-        if(!resposta.ok)
-        throw new Error (`Erro requisição: ${resposta.status} - ${resposta.statusText}`
-      );
-      }
-      
-      const dados = await resposta.json();
-      setlistaDePosts(dados);
+        if (!resposta.ok) {
+          throw new Error(
+            `Erro requisição: ${resposta.status} - ${resposta.statusText}`
+          );
+        }
+
+        const dados = await resposta.json();
+        setListaDePosts(dados);
       } catch (error) {
-        
+        console.error("Deu ruim: " + error.message);
       }
-      
     };
     carregarDados();
   }, []);
