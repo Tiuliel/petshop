@@ -2,6 +2,16 @@ import Container from "@/components/ui/Container";
 import Head from "next/head";
 import styled from "styled-components";
 
+export async function getStaticProps({ params }) {
+  const { id } = params;
+  console.log(id);
+}
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+}
 export default function post() {
   return (
     <>
@@ -21,4 +31,8 @@ export default function post() {
   );
 }
 
-const StyledPost = styled.article``;
+const StyledPost = styled.article`
+  h2::before {
+    content: "📑 ";
+  }
+`;
