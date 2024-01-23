@@ -2,13 +2,14 @@ import Head from "next/head";
 import styled from "styled-components";
 import ListaPosts from "@/components/ListaPosts";
 import { useEffect, useState } from "react";
+import serverApi from "./api/server";
 
 /* Função getStaticProps
 Utilizanda para execução de código server-side (neste caso, fetch na API)
 com o objetivo de gerar props com os dados processados. */
 export async function getStaticProps() {
   try {
-    const resposta = await fetch(`http://10.20.46.41:2112/posts`);
+    const resposta = await fetch(`${serverApi}/posts`);
     const dados = await resposta.json();
 
     if (!resposta.ok) {
