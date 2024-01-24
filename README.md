@@ -1,16 +1,26 @@
 # PetShop: projeto Next.js
 
+## Branch 14-usando-rotas-dinâmicas-para-abrir-post
+
+### Recursos necessários
+
+- Pages/rotas **dinâmicas** utilizando subpasta (posts) e arquivo nomeado com **colchetes** indicando o nome(s) do(s) parâmetros. No caso, foi criado o `[id].jsx`.
+
+- `getStaticProps`: necessário para carregar os dados da API de acordo com o parâmetro (usando a prop `{params}`) e gerar o HTML via SSR.
+
+- `getStatisPaths`: necessário para gerar os caminhos dinâmicos no momento do acesso à página.
+
 ## Branch 13-consumindo-dados-usando-modo-Next
 
-### Documentação oficial sobre SSR:
+### Documentação oficial sobre SSR
 
 https://nextjs.org/docs/pages/building-your-application/data-fetching
 
 ### Resumo sobre as funções
 
-`getStaticProps`: executada no lado do servidor (SSR - Server Side Rendering), portanto logs, erros, lógicas, ações/comandos NÃO aparecem para o usuário (mas aparecem no terminal para o programador(a)).
+`getStaticProps`: executada no lado do servidor (SSR - Server Side Rendering), portanto logs, erros, lógicas, ações/comandos NÃO aparecem para o usuário (mas aparecem no terminal para o programados(a)).
 
-Na maioria dos casos usaremos `getStaticProps` para este tipo de processamento em que os dados são consumidos (Data Fetching) através da uma API, já que esta função tem uma perfomance melhor por fazer o processamento apenas no momento da requisição.
+Na maioria dos casos usaremos `getStaticProps` para este tipo de processamento em que os dados são consumidos (Data Fetching) através de uma API, já que esta função tem uma performance melhor por fazer o processamento apenas no momento da requisição.
 
 Também há a função `getServerSideProps` que pode ser útil para páginas cujos dados mudam frequentemente ou são diferentes para cada usuário (como no caso de uso de dados de geolocalização).
 
