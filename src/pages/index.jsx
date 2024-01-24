@@ -18,7 +18,7 @@ export async function getStaticProps() {
 
     /* Gerando um array de categorias ÚNICAS */
     const categoriasUnicas = [...new Set(categorias)];
-    console.log(categoriasUnicas);
+
     return {
       props: {
         posts: dados,
@@ -48,6 +48,12 @@ export default function Home({ posts, categorias }) {
       </Head>
       <StyledHome>
         <h2>Pet Notícias</h2>
+
+        <div>
+          {categorias.map((categoria, indice) => {
+            return <button key={indice}>{categoria}</button>;
+          })}
+        </div>
         <ListaPosts posts={listaDePosts} />
       </StyledHome>
     </>
