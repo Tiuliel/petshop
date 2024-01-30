@@ -3,6 +3,11 @@ import Head from "next/head";
 import styled from "styled-components";
 
 export default function Contato() {
+  const { register, handSubmit } = useForm();
+
+  const enviarContato = () => {
+    console.log("Enviando daods...");
+  };
   return (
     <>
       <Head>
@@ -20,15 +25,21 @@ export default function Contato() {
           <form action="" method="post">
             <div>
               <label htmlFor="nome">Nome: </label>
-              <input type="text" name="nome" id="nome" />
+              <input {...register("nome")} type="text" name="nome" id="nome" />
             </div>
             <div>
               <label htmlFor="email">E-mail: </label>
-              <input type="email" name="email" id="email" />
+              <input
+                {...register("email")}
+                type="email"
+                name="email"
+                id="email"
+              />
             </div>
             <div>
               <label htmlFor="mensagem">Mensagem:</label>
               <textarea
+                {...register("mensagem")}
                 maxLength={500}
                 name="mensagem"
                 id="mensagem"
