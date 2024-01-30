@@ -1,5 +1,15 @@
 # PetShop: projeto Next.js
 
+## Branch 19-migração-api-fake-para-firebase-json
+
+### Firebase: https://firebase.google.com/
+
+Firebase é uma plataforma de serviços web (Web Services) com uma série de funcionalidades de Back-End úteis para aplicações (web, apps, jogos).
+
+No caso do PetShop, criamos um projeto Firebase e nele adicionamos um banco de dados chamado **Firebase RealTime Database** para utilização como API JSON.
+
+O RealTime Database é um banco de dados `NoSQL`, ou seja, um banco de dados **não-relacional**. Ele é baseado em documentos no formato JSON contendo objetos de dados.
+
 ## Branch 14-usando-rotas-dinâmicas-para-abrir-post
 
 ### Recursos necessários
