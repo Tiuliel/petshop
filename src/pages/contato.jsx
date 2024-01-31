@@ -118,6 +118,7 @@ const StyledContato = styled.section`
     margin-bottom: 0.5rem;
     display: flex;
     justify-content: space-between;
+
     /* Seletor + significa "elemento adjacente",
 ou seja, pegar os parágrafos que estão depois da div. */
 
