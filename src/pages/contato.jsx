@@ -46,6 +46,7 @@ export default function Contato() {
 
         <Container>
           <form
+            autoComplete="off"
             action=""
             method="post"
             onSubmit={handleSubmit((dados) => {
@@ -54,21 +55,35 @@ export default function Contato() {
           >
             <div>
               <label htmlFor="nome">Nome: </label>
-              <input {...register("nome")} type="text" name="nome" id="nome" />
+              <input
+                {...register("nome", { required: true })}
+                type="text"
+                name="nome"
+                id="nome"
+              />
             </div>
+            {/* ? é conhecido como "Optional Chaining [encadeamento opcional]"
+            É usado para evitar erros caso uma propriedade de um objeto seja null ou undefined. Caso não seja null/undefined, aí sim verificamos se o type é required para seguir com a validação"*/}
+            {errors.nome?.type == "required" && <p>Você deve digitaro nome</p>}
+
             <div>
               <label htmlFor="email">E-mail: </label>
               <input
-                {...register("email")}
+                {...register("email", { required: true })}
                 type="email"
                 name="email"
                 id="email"
               />
             </div>
+
+            {errors.email?.type == "required" && (
+              <p>Você deve digitaro o e-mail</p>
+            )}
+
             <div>
               <label htmlFor="mensagem">Mensagem:</label>
               <textarea
-                {...register("mensagem")}
+                {...register("mensagem", { required: true, minLength: 20 })}
                 maxLength={500}
                 name="mensagem"
                 id="mensagem"
@@ -76,6 +91,14 @@ export default function Contato() {
                 rows="8"
               ></textarea>
             </div>
+
+            {errors.mensagem?.type == "required" && (
+              <p>Você deve digitaro uma mensagem</p>
+            )}
+            {errors.mensagem?.type == "minLength" && (
+              <p>Escreva pelo menos 20 caracteres</p>
+            )}
+
             <div>
               <button type="submit">Enviar mensagem</button>
             </div>
@@ -95,6 +118,14 @@ const StyledContato = styled.section`
     margin-bottom: 0.5rem;
     display: flex;
     justify-content: space-between;
+    /* Seletor + significa "elemento adjacente",
+ou seja, pegar os parágrafos que estão depois da div. */
+
+    & + p {
+      color: red;
+      font-size: 0.8rem;
+      font-style: italic;
+    }
 
     & label {
       font-weight: bold;
