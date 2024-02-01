@@ -1,20 +1,27 @@
-# PetShop: projeto Next.js
+Arquivo chamado `manifest.json` com informações gerais sobre o aplicativo: nome, descrição, ícones, cores etc.
+
+No caso do Next.js, este arquivo deve ser colocado na pasta `public` e adicionado via `meta tag` na página `_document.js`.
+
+2. Criar/Configurar um Service Worker (JavaScript)
+
+`Service Worker` é um script que o navegador executa em segundo plano, de forma independente da interface ou de interações do usuário. Ele permite usar recursos que transformam a aplicação em PWA, como instalação/desinstalação, cache offline, notificações etc.
+`Service Worker` é um script que o navegador executa em segundo plano, de forma independente da interface ou de interações do usuário. Ele permite usar recursos que transformam a aplicação em PWA, como instalação/desinstalação, cache offline, notificações etc. No caso do Next.js, o Service Worker será criado/configurado automaticamente com o auxílio da lib `next-pwa` e com ajustes no `next.config.js`.
+
+3. Publicação em servidor com suporte à HTTPS
 
 ## Branch 19-migração-api-fake-para-firebase-json
 
 ### Firebase: https://firebase.google.com/
 
 Firebase é uma plataforma de serviços web (Web Services) com uma série de funcionalidades de Back-End úteis para aplicações (web, apps, jogos).
-
 No caso do PetShop, criamos um projeto Firebase e nele adicionamos um banco de dados chamado **Firebase RealTime Database** para utilização como API JSON.
-
 O RealTime Database é um banco de dados `NoSQL`, ou seja, um banco de dados **não-relacional**. Ele é baseado em documentos no formato JSON contendo objetos de dados.
 
 ### Lembrete sobre uso de APIs
 
 Como se trata de uma API JSON, podemos utilizar qualquer um dos verbos HTTP para consumo de APIs no padrão REST:
 
-- GET : ler, obter dados
+- GET: ler, obter dados
 - POST: criar, inserir
 - PUT: atualizar tudo
 - PATCH: atualizar parcialmente
